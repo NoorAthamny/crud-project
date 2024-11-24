@@ -9,10 +9,15 @@ import {
   Route,
   Routes,
 } from "react-router";
+import Shop from "./components/shop/Shop";
+import Product from "./components/product/Product";
+import Update from "./components/update/Update";
 
 const router = createBrowserRouter([
-  { path: "/nav", element: <NavBar /> },
   { path: "/", element: <Home /> },
+  { path: "/shop", element: <Shop /> },
+  { path: "/product", element: <Product /> },
+  { path: "/update", element: <Update /> },
 ]);
 
 function App() {

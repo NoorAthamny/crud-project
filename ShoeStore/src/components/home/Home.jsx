@@ -4,7 +4,7 @@ import "./home.css";
 
 const Home = () => {
   return (
-    <main>
+    <>
       <NavBar />
       <form>
         <article>
@@ -12,14 +12,14 @@ const Home = () => {
             <h1>Sign In</h1>
             <input type="Email" placeholder="Email" />
             <input type="password" placeholder="Password" />
-            <Link>Sign In</Link>
+            <Link to="/shop">Sign In</Link>
             <p>
               Dont have an account! <span>Create Accout</span>
             </p>
           </section>
         </article>
       </form>
-    </main>
+    </>
   );
 };
 
