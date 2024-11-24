@@ -1,0 +1,32 @@
+:root {
+  --primary-color: #141439;
+  --secondary-color: #ff3489;
+  --dark-gray: #222;
+  --white: #fefefe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: rgb(20, 20, 57);
+  background: radial-gradient(
+    circle,
+    rgba(20, 20, 57, 1) 57%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/bg-img.png);
+  background-size: cover;
+  background-position: center;
+}

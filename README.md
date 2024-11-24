@@ -19,7 +19,7 @@ This is a CRUD React application built for managing a shoe store. The project fo
 ## Technologies Used
 
 - React (JSX, Props, State, Routes)
-- FireBase
+- MockAPI
 - CRUD Operations
 - HTTP Requests
 

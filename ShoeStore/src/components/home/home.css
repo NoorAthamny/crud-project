@@ -1,0 +1,74 @@
+form {
+  width: 100vw;
+  height: 880px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+
+  & * {
+    transition: all 0.3s ease-in-out;
+  }
+
+  & article {
+    width: 500px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.233);
+    border-radius: 10px;
+    border: 4px solid white;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.185);
+    & section {
+      width: 90%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      & h1 {
+        font-size: 30px;
+        color: white;
+      }
+
+      & input {
+        width: 90%;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 2px solid white;
+        background-color: rgba(255, 255, 255, 0.233);
+        color: white;
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      & a {
+        font-size: 20px;
+        font-weight: 600;
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 5px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        &:hover {
+          background-color: white;
+          color: var(--secondary-color);
+        }
+      }
+
+      & p {
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        & span {
+          color: var(--secondary-color);
+        }
+      }
+    }
+  }
+}
