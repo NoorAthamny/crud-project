@@ -1,27 +1,25 @@
 /* eslint-disable no-unused-vars */
 import "./App.css";
-import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
-import {
-  RouterProvider,
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  Routes,
-} from "react-router";
 import Shop from "./components/shop/Shop";
 import Product from "./components/product/Product";
 import Update from "./components/update/Update";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Routes,
+} from "react-router-dom";
 
-const router = createBrowserRouter([
+const routerPath = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/product", element: <Product /> },
-  { path: "/update", element: <Update /> },
+  { path: "/product/:id", element: <Product /> },
+  { path: "/update/:id", element: <Update /> },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={routerPath} />;
 }
 
 export default App;

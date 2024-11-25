@@ -1,23 +1,37 @@
-import { Link } from "react-router";
-import NavBar from "../navbar/NavBar";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchShoes } from "../../api";
 import "./shop.css";
+import NavBar from "../navbar/NavBar";
+
 const Shop = () => {
+  const [shoes, setShoes] = useState([]);
+
+  useEffect(() => {
+    const getShoes = async () => {
+      const data = await fetchShoes();
+      setShoes(data);
+      console.log(data);
+    };
+
+    getShoes();
+  }, []);
+
   return (
     <>
       <NavBar />
       <article className="shopArt">
-        <section className="shopSec">
-          <img
-            src="https://m.media-amazon.com/images/I/71LYHO3+wnL._AC_SL1356_.jpg"
-            alt=""
-          />
-          <h2>SHURE SM7B</h2>
-          <h4>1350$</h4>
-          <section>
-            <Link to="/product">View</Link>
-            <Link to="/update">Edit</Link>
+        {shoes.map((shoe) => (
+          <section key={shoe.id} className="shopSec">
+            <img src={shoe.image} alt={shoe.name} />
+            <h2>{shoe.name}</h2>
+            <h4>{shoe.price}₪</h4>
+            <section>
+              <Link to={`/product/${shoe.id}`}>View</Link>
+              <Link to={`/update/${shoe.id}`}>Edit</Link>
+            </section>
           </section>
-        </section>
+        ))}
       </article>
     </>
   );

@@ -1,33 +1,41 @@
-import { Link } from "react-router";
-import NavBar from "../navbar/NavBar";
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { fetchShoeById } from "../../api";
 import "./product.css";
+import NavBar from "../navbar/NavBar";
 
 const Product = () => {
+  const { id } = useParams();
+  const [shoe, setShoe] = useState(null);
+
+  useEffect(() => {
+    const getShoe = async () => {
+      const data = await fetchShoeById(id);
+      setShoe(data);
+    };
+
+    getShoe();
+  }, [id]);
+
+  if (!shoe) return <p>Loading...</p>;
+
   return (
     <>
       <NavBar />
       <main>
         <article className="productSec">
           <section className="productImg">
-            <img
-              src="https://m.media-amazon.com/images/I/71LYHO3+wnL._AC_SL1356_.jpg"
-              alt=""
-            />
+            <img src={shoe.image} alt={shoe.name} />
           </section>
           <section className="productText">
-            <h1>Shure Sm7b</h1>
+            <h1>{shoe.name}</h1>
+            <p>{shoe.description}</p>
             <p>
-              Shure SM7B Microphone - Vocal Dynamic Studio Mic for Broadcast,
-              Podcast, Recording, Gaming & Streaming, XLR, Rugged Construction,
-              Detachable Windscreen, Smooth Sound, Warm Vocals, Wide-Range
-              Frequency
-            </p>
-            <p>
-              <span>1350₪</span> Available On Stock
+              <span>{shoe.price}₪</span> Available On Stock
             </p>
             <figure className="productBtn">
-              <Link>ADD TO CART</Link>
-              <Link>Edit</Link>
+              <Link to="#">ADD TO CART</Link>
+              <Link to={`/update/${id}`}>Edit</Link>
             </figure>
           </section>
         </article>

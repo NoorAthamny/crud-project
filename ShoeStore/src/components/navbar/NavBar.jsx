@@ -7,7 +7,7 @@ const NavBar = () => {
       <nav>
         <ul>
           <Link to="/">Home</Link>
-          <img src="images\adible-logo.png" alt="logo" />
+          <img src="..\images\LOGO-WHITE-01.png" alt="logo" />
           <Link to="/shop">Shop</Link>
         </ul>
       </nav>
